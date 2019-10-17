@@ -1,3 +1,4 @@
+using Extensions.Tests.Models;
 using System.Collections.Generic;
 using Xunit;
 
@@ -28,16 +29,5 @@ namespace Extensions.Tests
             Assert.Equal(1, obj.SafeGet(x => x[0]));
             Assert.Equal(0, obj.SafeGet(x => x[10]));
         }
-    }
-
-    internal class Model
-    {
-        public Nested Nested { get; set; }
-        public int Number { get; set; }
-    }
-
-    internal class Nested
-    {
-        public string Number { get; set; }
     }
 }
