@@ -45,6 +45,12 @@ namespace Extensions
             var rand = new Random(Guid.NewGuid().GetHashCode());
             return enumerable.OrderBy(i => rand.Next());
         }
+
+        public static IEnumerable<T> GetRandom<T>(this IEnumerable<T> enumerable, int count = Int32.MaxValue)
+        {
+            count = Math.Min(count, enumerable.Count());
+            return enumerable.Shuffle().Take(count);
+        }
     }
 
     internal class LambdaEqualityComparer<T> : IEqualityComparer<T>

@@ -137,5 +137,14 @@ namespace Extensions.Tests
             var output = list.Shuffle().ToList();
             Assert.Contains(output, o => output.IndexOf(o) != list.IndexOf(o));
         }
+
+        [Fact]
+        public void GetRandom_Test()
+        {
+            var list = Enumerable.Range(0, 100);
+            var output1 = list.GetRandom(22).ToList();
+            var output2 = list.GetRandom(22).ToList();
+            Assert.Contains(output1, o => output1.IndexOf(o) != output2.IndexOf(o));
+        }
     }
 }
