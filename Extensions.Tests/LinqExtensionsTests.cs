@@ -129,5 +129,13 @@ namespace Extensions.Tests
             Assert.Single(list);
             Assert.Equal(model1, list[0]);
         }
+
+        [Fact]
+        public void Shuffle_Test()
+        {
+            var list = new List<string> { "1", "2", "3" };
+            var output = list.Shuffle().ToList();
+            Assert.Contains(output, o => output.IndexOf(o) != list.IndexOf(o));
+        }
     }
 }

@@ -39,6 +39,12 @@ namespace Extensions
         {
             return collection.AddUnique(item, arg => arg);
         }
+
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> enumerable)
+        {
+            var rand = new Random(Guid.NewGuid().GetHashCode());
+            return enumerable.OrderBy(i => rand.Next());
+        }
     }
 
     internal class LambdaEqualityComparer<T> : IEqualityComparer<T>
